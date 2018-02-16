@@ -55,7 +55,7 @@ public abstract class AbstractTurtle implements Turtle{
       if(this.pState == Pen.DOWN){
         int x = this.x;
         int y = this.y;
-        this.paper.markChar(x, y, brush);
+        this.paper.markChar(x, paper.getHeight()-1-y, brush);
       }
     }
 }
