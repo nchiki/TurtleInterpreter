@@ -51,8 +51,8 @@ public class BouncyTurtle extends AbstractTurtle{
       int y = this.y;
       this.paper.markChar(x, y, brush);
     }
-  }
-*/
+  }*/
+
   @Override
   public void move(int units) {
     for (int i = 0; i < units; i++) {

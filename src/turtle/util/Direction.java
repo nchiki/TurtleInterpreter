@@ -7,7 +7,7 @@ public enum Direction {
   NORTH, WEST, SOUTH, EAST, NORTHEAST,
   NORTHWEST, SOUTHEAST, SOUTHWEST;
 
- public Direction rotate(Rotation rotation) {
+  public Direction rotate(Rotation rotation) {
    List<Direction> dir = new ArrayList<>();
    dir.add(NORTH);
    dir.add(NORTHEAST);

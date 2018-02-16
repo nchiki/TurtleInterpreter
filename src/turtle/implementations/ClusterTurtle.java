@@ -47,9 +47,9 @@ public class ClusterTurtle implements Turtle{
   }
 
   @Override
-  public void move(int count) {
+  public void move(int num) {
     for (Turtle turtle : turtles){
-      turtle.move(count);
+      turtle.move(num);
     }
   }
 }
