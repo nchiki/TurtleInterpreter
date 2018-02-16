@@ -1,6 +1,6 @@
 package turtle.util;
 
-public enum Pen{
-  UP, DOWN,
-  }
+public enum Pen {
+    UP,DOWN
 
+}

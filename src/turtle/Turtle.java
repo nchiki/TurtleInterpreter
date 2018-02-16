@@ -4,15 +4,13 @@ import turtle.util.Rotation;
 
 public interface Turtle {
 
-    public void up();
-    public void down();
+    void setPenDown();
 
-    public void markBrush(char c);
+    void setPenUp();
 
-    public void rotate(Rotation rot, int num);
+    void setBrush(char brush);
 
-    public void mark();
+    void rotateBy(Rotation rotation, int angle);
 
-    public void move(int units);
-
+    void move(int count);
 }

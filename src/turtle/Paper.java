@@ -1,51 +1,63 @@
 package turtle;
 
 public class Paper {
-  private final int height;
-  private final int width;
-  private char[][] content;
 
-  public Paper(int width, int height){
+    private char grid[][];
+    private final int width;
+    private final int height;
 
-    this.height = height;
-    this.width = width;
-    this.content = new char[height][width];
-    for(int h = height-1; h >= 0; h--){
-      for(int w = 0; w < width; w++){
-       content[h][w] = ' ';
-      }
+    Paper(int width, int height){
+        this.width = width;
+        this.height = height;
+        this.grid = new char[height][width];
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                grid[i][j] = ' ';
+            }
+        }
     }
 
-  }
-
-  public boolean isInside(int x, int y){
-    return (0 <= x && x < this.width && 0 <= y && y < this.height);
-  }
-
-  public int getHeight() {
-    return height;
-  }
-
-  public int getWidth() {
-    return width;
-  }
-
-  public void markChar(int x, int y, char C) {
-    if (isInside(x, y)) {
-      content[y][x] = C;
+    public int getWidth() {
+        return width;
     }
-  }
 
-  public String toString() {
-    String output;
-    StringBuilder sb = new StringBuilder();
-    for (int h = height-1; h >= 0; h--) {
-      for (int w = 0; w < width; w++) {
-       sb.append(content[h][w]);
-      }
-      sb.append('\n');
+    public int getHeight() {
+        return height;
     }
-    output = sb.toString();
-    return output;
-  }
+
+    public boolean isIn(int x, int y){
+        return x<width && y<height &&
+                x>=0 && y>=0;
+    }
+
+    public boolean isAbove(int y){
+        return y>=height;
+    }
+
+    public boolean isBelow(int y){
+        return y<0;
+    }
+
+    public boolean isRight(int x){
+        return x>=width;
+    }
+
+    public boolean isLeft(int x){
+        return x<0;
+    }
+
+    public void mark(int x, int y, char c){
+        if(isIn(x,y)){
+            this.grid[y][x] = c;
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        for (char[] row: grid){
+            s.append(row).append('\n');
+        }
+        return s.toString();
+    }
 }
