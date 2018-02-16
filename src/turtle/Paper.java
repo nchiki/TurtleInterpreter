@@ -9,10 +9,10 @@ public class Paper {
 
     this.height = height;
     this.width = width;
-    this.content = new char[width][height];
+    this.content = new char[height][width];
     for(int h = height-1; h >= 0; h--){
       for(int w = 0; w < width; w++){
-       content[w][h] = ' ';
+       content[h][w] = ' ';
       }
     }
 
@@ -32,7 +32,7 @@ public class Paper {
 
   public void markChar(int x, int y, char C) {
     if (isInside(x, y)) {
-      content[x][y] = C;
+      content[y][x] = C;
     }
   }
 
@@ -41,7 +41,7 @@ public class Paper {
     StringBuilder sb = new StringBuilder();
     for (int h = height-1; h >= 0; h--) {
       for (int w = 0; w < width; w++) {
-       sb.append(content[w][h]);
+       sb.append(content[h][w]);
       }
       sb.append('\n');
     }

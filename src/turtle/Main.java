@@ -8,10 +8,18 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-    String inputLocation = args[0];
-    String outputLocation = args[1];
-    Scanner input = new Scanner(new File(inputLocation));
-    PrintStream output = new PrintStream(new File(outputLocation));
+        Scanner input = new Scanner(System.in);
+        PrintStream output = new PrintStream(System.out);
+        if(args.length == 2){
+            File i = new File(args[0]);
+            File o = new File(args[1]);
+            input = new Scanner(i);
+            output = new PrintStream(o);
+        } else if(args.length == 1){
+            File i = new File(args[0]);
+            input = new Scanner(i);
+        }
+
     TurtleInterpreter t= new TurtleInterpreter(input, output);
     t.process();
     }

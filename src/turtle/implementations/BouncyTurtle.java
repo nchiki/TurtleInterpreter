@@ -1,24 +1,19 @@
 package turtle.implementations;
 
 import turtle.Paper;
-import turtle.Turtle;
 import turtle.util.Direction;
 import turtle.util.Pen;
 import turtle.util.Rotation;
 
-public class BouncyTurtle implements Turtle{
+public class BouncyTurtle extends AbstractTurtle{
 
-  public final String name;
-  private Direction direction;
-  private Pen pState;
-  private Paper paper;
-  private char brush;
-  private final char defaultBrush = '*';
-  private int x;
-  private int y;
+  public BouncyTurtle(String name, int x, int y, Direction direction, Pen pState,
+      Paper paper) {
+    super(name, x, y, direction, pState, paper);
+  }
 
 
-  public BouncyTurtle(String name, int x, int y, Direction direction, Pen pState, Paper paper){
+  /*public BouncyTurtle(String name, int x, int y, Direction direction, Pen pState, Paper paper){
     this.x = x;
     this.y = y;
     this.name = name;
@@ -57,10 +52,15 @@ public class BouncyTurtle implements Turtle{
       this.paper.markChar(x, y, brush);
     }
   }
-
+*/
   @Override
   public void move(int units) {
     for (int i = 0; i < units; i++) {
+      movehelper();
+    }
+  }
+
+  private void movehelper(){
       switch (this.direction) {
         case EAST:
           if(this.paper.isInside(this.x+1, this.y)) {
@@ -69,6 +69,7 @@ public class BouncyTurtle implements Turtle{
             break;
           }
           else{
+            this.rotate(Rotation.LEFT, 4);
             break;
           }
 
@@ -78,6 +79,7 @@ public class BouncyTurtle implements Turtle{
             mark();
             break;
           } else {
+            this.rotate(Rotation.LEFT, 4);
             break;
           }
 
@@ -87,6 +89,7 @@ public class BouncyTurtle implements Turtle{
             mark();
             break;
           } else{
+            this.rotate(Rotation.LEFT, 4);
             break;
           }
 
@@ -96,6 +99,7 @@ public class BouncyTurtle implements Turtle{
             mark();
             break;
           } else {
+            this.rotate(Rotation.LEFT, 4);
             break;
           }
 
@@ -106,6 +110,7 @@ public class BouncyTurtle implements Turtle{
             mark();
             break;
           } else {
+            this.rotate(Rotation.LEFT, 4);
             break;
           }
 
@@ -116,6 +121,7 @@ public class BouncyTurtle implements Turtle{
             mark();
             break;
           } else {
+            this.rotate(Rotation.LEFT, 4);
             break;
           }
 
@@ -126,6 +132,7 @@ public class BouncyTurtle implements Turtle{
             mark();
             break;
           } else {
+            this.rotate(Rotation.LEFT, 4);
             break;
           }
 
@@ -136,6 +143,7 @@ public class BouncyTurtle implements Turtle{
             mark();
             break;
           } else {
+            this.rotate(Rotation.LEFT, 4);
             break;
           }
 
@@ -145,6 +153,4 @@ public class BouncyTurtle implements Turtle{
 
     }
   }
-
-}
 
