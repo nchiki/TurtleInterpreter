@@ -9,13 +9,17 @@ public class Paper {
 
     this.height = height;
     this.width = width;
-    this.content = new char[height][width];
-    for(int h = 0; h < height; h++){
+    this.content = new char[width][height];
+    for(int h = height-1; h >= 0; h--){
       for(int w = 0; w < width; w++){
-       content[h][w] = ' ';     //ist paper jetzt am Anfang 10x10 oder width and height
+       content[w][h] = ' ';
       }
     }
 
+  }
+
+  public boolean isInside(int x, int y){
+    return (0 <= x && x < this.width && 0 <= y && y < this.height);
   }
 
   public int getHeight() {
@@ -27,7 +31,7 @@ public class Paper {
   }
 
   public void markChar(int x, int y, char C) {
-    if (x <= height && y <= width) {
+    if (isInside(x, y)) {
       content[x][y] = C;
     }
   }
@@ -35,10 +39,11 @@ public class Paper {
   public String toString() {
     String output;
     StringBuilder sb = new StringBuilder();
-    for (int h = 0; h < height; h++) {
+    for (int h = height-1; h >= 0; h--) {
       for (int w = 0; w < width; w++) {
-       sb.append(content[h][w]);
+       sb.append(content[w][h]);
       }
+      sb.append('\n');
     }
     output = sb.toString();
     return output;
